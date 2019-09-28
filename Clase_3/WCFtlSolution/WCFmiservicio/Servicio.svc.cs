@@ -90,5 +90,38 @@ namespace WCFmiservicio
         }
 
         #endregion
+
+        #region Practica 3
+
+        public decimal Salario(int horasTrabajadas, decimal precioPorHora, decimal[] rebajos)
+        {
+            decimal Salario;
+            Salario = precioPorHora * horasTrabajadas;
+
+            for (int i = 0; i <= (rebajos.Length - 1); i++)
+            {
+                Salario -= rebajos[i];
+            }
+            if (Salario <= 100000)
+            {
+                Salario *= 1.1M;
+            }
+            else
+            {
+                Salario *= 1.05M;
+            }
+            return Salario;
+        }
+
+        [Obsolete("Para la prueba del metodo Salario().", false)]
+        public decimal TestSalario()
+        {
+            decimal[] rebajos = new decimal[3];
+            rebajos[0] = 100;
+            rebajos[1] = 1;
+            return Salario(1, 10000, rebajos);
+        }
+
+        #endregion
     }
 }
