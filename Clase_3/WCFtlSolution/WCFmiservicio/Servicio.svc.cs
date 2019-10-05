@@ -114,12 +114,20 @@ namespace WCFmiservicio
         }
 
         [Obsolete("Para la prueba del metodo Salario().", false)]
-        public decimal TestSalario()
+        public string TestSalario()
         {
+            string msj;
+            decimal total;
             decimal[] rebajos = new decimal[3];
+
             rebajos[0] = 100;
             rebajos[1] = 1;
-            return Salario(1, 10000, rebajos);
+
+            total = Salario(1, 10000, rebajos);
+
+
+
+            return string;
         }
 
         #endregion
