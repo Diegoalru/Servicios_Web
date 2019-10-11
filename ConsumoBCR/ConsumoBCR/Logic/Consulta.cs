@@ -9,14 +9,22 @@ namespace ConsumoBCR.Logic
 {
     public class Consulta
     {
-        public void ConsultaIndicador(string indicador)
+        /// <summary>
+        /// Metodo que llama al servicio web para hacer la consulta de los indicadores economicos.
+        /// </summary>
+        /// <param name="indicador">Numero de identificador economico.</param>
+        /// <param name="fecha">Fecha que se desea validar</param>
+        /// <param name="usuario">Nombre del usuario</param>
+        /// <returns>Retorna una lista con todos los datos devueltos por el servicio.</returns>
+        public List<string> ConsultaIndicador(string indicador, string fecha, string usuario)
         {
+            List<string> datos = new List<string>();
             cr.fi.bccr.gee.wsIndicadoresEconomicos cliente = new cr.fi.bccr.gee.wsIndicadoresEconomicos();
-            DataSet Tipocambio = cliente.ObtenerIndicadoresEconomicos(indicador, "5/10/2019", "5/10/2019", "Diego Rubi Salas", "N");
-            Console.WriteLine("Código Indicador:    " + Tipocambio.Tables[0].Rows[0].ItemArray[0].ToString());
-            Console.WriteLine("Fecha Consulta:  " + Tipocambio.Tables[0].Rows[0].ItemArray[1].ToString());
-            Console.WriteLine("Valor:   " + Tipocambio.Tables[0].Rows[0].ItemArray[2].ToString());
-            Console.ReadLine();
+            DataSet Tipocambio = cliente.ObtenerIndicadoresEconomicos(indicador, fecha, fecha, usuario, "N");
+            datos.Add(Tipocambio.Tables[0].Rows[0].ItemArray[0].ToString());    //Codigo identificador.
+            datos.Add(Tipocambio.Tables[0].Rows[0].ItemArray[1].ToString());    //Fecha Consuta.
+            datos.Add(Tipocambio.Tables[0].Rows[0].ItemArray[2].ToString());    //Valor.
+            return datos;
         }
     }
 }
