@@ -11,15 +11,17 @@ using System.Configuration;
 namespace WSBD
 {
     /// <summary>
-    /// Descripción breve de BD
+    /// Esta clase posee los metodos para poder hacer uso de la base de datos 'Test'.
     /// </summary>
+    //[WebService(Namespace = "http://www.wsbd.com")]
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
-    [System.ComponentModel.ToolboxItem(false)]
+    [System.ComponentModel.ToolboxItem(true)]
     // Para permitir que se llame a este servicio web desde un script, usando ASP.NET AJAX, quite la marca de comentario de la línea siguiente. 
     // [System.Web.Script.Services.ScriptService]
     public class BD : System.Web.Services.WebService
     {
+
         #region Metodos_Prueba
         /// <summary>
         /// Metodo de prueba.
@@ -37,7 +39,7 @@ namespace WSBD
         /// Obtiene la información de la tabla Usuarios.
         /// </summary>
         /// <returns>Información de la tabla usuarios</returns>
-        [WebMethod]
+        [WebMethod(Description = "Obtiene la información de la tabla Usuarios.")]
         public DataSet GetUsuarios()
         {
             SqlConnection conn = new SqlConnection();
@@ -50,12 +52,12 @@ namespace WSBD
         }
 
         /// <summary>
-        /// Metodo que valida las credenciales
+        /// Metodo que valida las credenciales del usuario.
         /// </summary>
         /// <param name="username">Nombre de usuario</param>
         /// <param name="password">Contraseña del usuario</param>
         /// <returns>Retorna <code>True</code> en caso de que las credenciales existan en la base de datos.</returns>
-        [WebMethod]
+        [WebMethod(Description = "Metodo que valida las credenciales del usuario.")]
         public Boolean Login(String username, String password)
         {
             try
@@ -97,7 +99,9 @@ namespace WSBD
         
         #region Movimientos
 
-        /* TODO: Crear metodo para buscar datos individuales.
+        /* 
+         * TODO: Crear metodo para buscar datos individuales.
+         * TODO: ¡Crear relaciones entre las tablas!
          */
 
 
@@ -105,7 +109,7 @@ namespace WSBD
         /// Metodo que devuelve todos los Movimientos.
         /// </summary>
         /// <returns>Retorna un <code>DataSet</code> con los datos de la tabla Movimientos.</returns>
-        [WebMethod]
+        [WebMethod(Description = "Metodo que devuelve todos los Movimientos.")]
         public DataSet GetMovimientos()
         {
             try
@@ -146,7 +150,7 @@ namespace WSBD
         /// <param name="cuenta">Id de la cuenta.</param>
         /// <param name="movimiento">Id del movimiento.</param>
         /// <param name="monto">Monto del moviento.</param>
-        [WebMethod]
+        [WebMethod(Description = "Metodo que se encarga de ingresar movimientos.")]
         public void IngresaMovimiento(string id_cuenta, string id_movimiento, double monto)
         {
             try
@@ -193,7 +197,11 @@ namespace WSBD
 
         }
 
-        [WebMethod]
+        /// <summary>
+        /// Elimina un registro mediante su Id.
+        /// </summary>
+        /// <param name="id_movimiento">Id del movimiento que se desea eliminar.</param>
+        [WebMethod(Description = "Elimina un registro mediante su Id.")]
         public void EliminaMovimiento(string id_movimiento)
         {
             try
@@ -222,9 +230,42 @@ namespace WSBD
             }
         }
 
+        /// <summary>
+        /// Modifica un registro mediante su Id.
+        /// </summary>
+        /// <param name="id_movimiento">Id del movimiento que se desea modificar.</param>
+        /// <param name="monto">Monto por el cual se desea reemplazar.</param>
+        [WebMethod(Description = "Modifica un registro mediante su Id.")]
+        public void ModificaMovimiento(string id_movimiento, double monto)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SQLServer"].ConnectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand(@"
+                            UPDATE
+                                TBL_CUENTASMOVTOS 
+                            SET 
+                                MONTO_MOVTO = @MONTO
+                            WHERE 
+                                ID_MOVTO = @ID_MOVTO;"))
+                    {
+                        cmd.Parameters.AddWithValue("@MONTO", monto);
+                        cmd.Parameters.AddWithValue("@ID_MOVTO", id_movimiento);
+
+                        cmd.Connection = conn;
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                Console.Write("Ha ocurrido un error.\n");
+            }
+        }
         #endregion
-
-
 
     }
 }
