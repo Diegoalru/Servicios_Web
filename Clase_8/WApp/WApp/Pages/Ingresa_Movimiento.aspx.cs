@@ -13,5 +13,20 @@ namespace WApp.Pages
         {
 
         }
+
+        protected void Btn_Insertar_Click(object sender, EventArgs e)
+        {
+            com.wsbd.www.BD WS = new com.wsbd.www.BD();
+            double monto;
+            try
+            {
+                double.TryParse(Txt_Monto.Text, out monto);
+                WS.IngresaMovimiento(Txt_Cuenta.Text, Txt_Movimiento.Text, monto);
+            }
+            catch (Exception ex)
+            {
+                Lbl_Mensaje.Text = $"{ex.Message}";
+            }
+        }
     }
 }

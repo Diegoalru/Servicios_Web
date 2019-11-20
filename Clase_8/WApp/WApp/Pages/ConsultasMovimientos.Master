@@ -6,52 +6,34 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Consulta Movimientos</title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
+    <link href="../Styles/MasterPageStyle.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
     <style>
-        .vertical-menu {
-            float: left;
-        }
-
-        ul{
+        ul {
             list-style-type: none;
-        }
-
-        .vertical-menu {
-            width: 200px;
-
-        }
-        .vertical-menu a {
-            background-color: #eee;
-            color: black;
-            display: block;
-            padding: 12px;
-            text-decoration: none;
-
-        }
-        .vertical-menu a:hover {
-            background-color: #ccc;
-
-        }
-        .vertical-menu a.active {
-            background-color: #4CAF50;
-            color: white;
-
         }
     </style>
 </head>
 <body>
-    <div id="vertical-menu">
-        <ul>
-            <li><a href="../Home.aspx" class="active">Inicio</a></li>
-            <li><a href="Total_Movimientos.aspx">Consulta Total de Movimientos</a></li>
-            <li><a href="Ingresa_Movimiento.aspx">Inserta Movimientos</a></li>
-        </ul>
-    </div>
     <form id="form1" runat="server">
-        <div>
-            <asp:ContentPlaceHolder ID="Contenido" runat="server">
-            </asp:ContentPlaceHolder>
+        <div class="wrapper">
+            <div class="menu">
+                <ul>
+                    <li><a href="../Home.aspx">Cerrar Sesion</a></li>
+                    <!-- TODO: Cambiar los siguientes links por las distintas categorias tipo Cuentas, Movimientos, Pagos, etc... -->
+                    <li><a href="Total_Movimientos.aspx">Consulta Total de Movimientos</a></li>
+                    <li><a href="Ingresa_Movimiento.aspx">Inserta Movimientos</a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <div class="content">
+                <asp:ContentPlaceHolder ID="Contenido" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="clear"></div>
+            <div class="footer">
+                <h2>Servicios Web IIIC0 2019</h2>
+            </div>
         </div>
     </form>
 </body>

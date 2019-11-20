@@ -21,6 +21,7 @@ namespace WApp.Pages
             DataSet ds = WS.GetMovimientos();
             Grd_TotalMovimientos.DataSource = ds.Tables[0];
             Grd_TotalMovimientos.DataBind();
+            Lbl_Mensaje.Text = $"Fecha y hora de la consulta: {DateTime.Now.Date.ToString("dd/MM/yyyy")} a las {DateTime.Now.ToString("HH:mm tt")}";
         }
     }
 }

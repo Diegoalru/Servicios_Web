@@ -7,5 +7,5 @@
         <asp:GridView ID="Grd_TotalMovimientos" runat="server">
         </asp:GridView>
     </p>
-    
+    <asp:Label Text="" runat="server" ID="Lbl_Mensaje" />
 </asp:Content>

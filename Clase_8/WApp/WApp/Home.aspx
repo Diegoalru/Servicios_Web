@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="WApp.Home" %>
+﻿
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="WApp.Home" %>
 
 <!DOCTYPE html>
 
@@ -41,7 +42,7 @@
     </style>
 </head>
 <body>
-    <form id="form1" runat="server" method="post" style="position: absolute; z-index: auto" defaultfocus="Txt_Usuario">
+    <form id="form1" runat="server" method="post" style="position: absolute;" defaultfocus="Txt_Usuario">
         <%--
         <asp:GridView ID="Grd_Usuarios" runat="server">
         </asp:GridView>
@@ -49,16 +50,19 @@
         <div>
             <table>
                 <tr>
-                    <td>Usuario</td>
                     <td>
-                        <asp:TextBox ID="Txt_Usuario" runat="server" Width="205px"></asp:TextBox>
+                        Usuario
+                    </td>
+                    <td>
+                        <asp:TextBox ID="Txt_Usuario" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td>Clave
+                    <td>
+                        Clave
                     </td>
                     <td>
-                        <asp:TextBox ID="Txt_Clave" runat="server" Width="205px" TextMode="Password"></asp:TextBox>
+                        <asp:TextBox ID="Txt_Clave" runat="server" TextMode="Password"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -68,7 +72,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2" style="" align="center">
+                    <td colspan="2" align="center">
                         <asp:Button ID="Btn_Login" runat="server" Text="Ingresar" OnClick="Btn_Login_Click" />
                     </td>
                 </tr>

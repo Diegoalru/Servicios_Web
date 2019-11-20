@@ -90,8 +90,10 @@
   <ItemGroup>
     <Content Include="Home.aspx" />
     <None Include="Web References\com.wsbd.www\BD.disco" />
+    <Content Include="Pages\Actualiza_Movimiento.aspx" />
     <Content Include="Pages\Ingresa_Movimiento.aspx" />
     <Content Include="Pages\Total_Movimientos.aspx" />
+    <Content Include="Styles\MasterPageStyle.css" />
     <Content Include="Web.config" />
     <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
   </ItemGroup>
@@ -109,6 +111,13 @@
     </Compile>
     <Compile Include="Pages\ConsultasMovimientos.Master.designer.cs">
       <DependentUpon>ConsultasMovimientos.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Actualiza_Movimiento.aspx.cs">
+      <DependentUpon>Actualiza_Movimiento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Actualiza_Movimiento.aspx.designer.cs">
+      <DependentUpon>Actualiza_Movimiento.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Ingresa_Movimiento.aspx.cs">
       <DependentUpon>Ingresa_Movimiento.aspx</DependentUpon>
