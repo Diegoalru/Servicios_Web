@@ -102,6 +102,7 @@ namespace WSBD
         /* 
          * TODO: Crear metodo para buscar datos individuales.
          * TODO: ¡Crear relaciones entre las tablas!
+         * TODO: Agregar Identity a las llaves primarias.
          */
 
 
@@ -201,7 +202,7 @@ namespace WSBD
         /// Elimina un registro mediante su Id.
         /// </summary>
         /// <param name="id_movimiento">Id del movimiento que se desea eliminar.</param>
-        [WebMethod(Description = "Elimina un registro mediante su Id.")]
+        [WebMethod(Description = "Elimina un registro mediante su Id_Movimiento.")]
         public void EliminaMovimiento(string id_movimiento)
         {
             try
@@ -235,7 +236,7 @@ namespace WSBD
         /// </summary>
         /// <param name="id_movimiento">Id del movimiento que se desea modificar.</param>
         /// <param name="monto">Monto por el cual se desea reemplazar.</param>
-        [WebMethod(Description = "Modifica un registro mediante su Id.")]
+        [WebMethod(Description = "Modifica un registro mediante su Id_Movimiento.")]
         public void ModificaMovimiento(string id_movimiento, double monto)
         {
             try

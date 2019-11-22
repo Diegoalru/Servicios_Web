@@ -42,6 +42,8 @@ namespace WApp.com.wsbd.www {
         
         private System.Threading.SendOrPostCallback EliminaMovimientoOperationCompleted;
         
+        private System.Threading.SendOrPostCallback ModificaMovimientoOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -97,6 +99,9 @@ namespace WApp.com.wsbd.www {
         
         /// <remarks/>
         public event EliminaMovimientoCompletedEventHandler EliminaMovimientoCompleted;
+        
+        /// <remarks/>
+        public event ModificaMovimientoCompletedEventHandler ModificaMovimientoCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/HelloWorld", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -271,6 +276,36 @@ namespace WApp.com.wsbd.www {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ModificaMovimiento", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void ModificaMovimiento(string id_movimiento, double monto) {
+            this.Invoke("ModificaMovimiento", new object[] {
+                        id_movimiento,
+                        monto});
+        }
+        
+        /// <remarks/>
+        public void ModificaMovimientoAsync(string id_movimiento, double monto) {
+            this.ModificaMovimientoAsync(id_movimiento, monto, null);
+        }
+        
+        /// <remarks/>
+        public void ModificaMovimientoAsync(string id_movimiento, double monto, object userState) {
+            if ((this.ModificaMovimientoOperationCompleted == null)) {
+                this.ModificaMovimientoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnModificaMovimientoOperationCompleted);
+            }
+            this.InvokeAsync("ModificaMovimiento", new object[] {
+                        id_movimiento,
+                        monto}, this.ModificaMovimientoOperationCompleted, userState);
+        }
+        
+        private void OnModificaMovimientoOperationCompleted(object arg) {
+            if ((this.ModificaMovimientoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ModificaMovimientoCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -400,6 +435,10 @@ namespace WApp.com.wsbd.www {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
     public delegate void EliminaMovimientoCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
+    public delegate void ModificaMovimientoCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
 #pragma warning restore 1591

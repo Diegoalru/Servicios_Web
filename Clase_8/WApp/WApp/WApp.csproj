@@ -91,6 +91,7 @@
     <Content Include="Home.aspx" />
     <None Include="Web References\com.wsbd.www\BD.disco" />
     <Content Include="Pages\Actualiza_Movimiento.aspx" />
+    <Content Include="Pages\Borra_Movimiento.aspx" />
     <Content Include="Pages\Ingresa_Movimiento.aspx" />
     <Content Include="Pages\Total_Movimientos.aspx" />
     <Content Include="Styles\MasterPageStyle.css" />
@@ -118,6 +119,13 @@
     </Compile>
     <Compile Include="Pages\Actualiza_Movimiento.aspx.designer.cs">
       <DependentUpon>Actualiza_Movimiento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Borra_Movimiento.aspx.cs">
+      <DependentUpon>Borra_Movimiento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Borra_Movimiento.aspx.designer.cs">
+      <DependentUpon>Borra_Movimiento.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Ingresa_Movimiento.aspx.cs">
       <DependentUpon>Ingresa_Movimiento.aspx</DependentUpon>

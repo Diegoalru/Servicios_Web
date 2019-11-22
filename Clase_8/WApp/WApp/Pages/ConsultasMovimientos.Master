@@ -21,8 +21,10 @@
                 <ul>
                     <li><a href="../Home.aspx">Cerrar Sesion</a></li>
                     <!-- TODO: Cambiar los siguientes links por las distintas categorias tipo Cuentas, Movimientos, Pagos, etc... -->
-                    <li><a href="Total_Movimientos.aspx">Consulta Total de Movimientos</a></li>
-                    <li><a href="Ingresa_Movimiento.aspx">Inserta Movimientos</a></li>
+                    <li><a href="Total_Movimientos.aspx">Consultar Movimientos</a></li>
+                    <li><a href="Ingresa_Movimiento.aspx">Insertar Movimientos</a></li>
+                    <li><a href="Actualiza_Movimiento.aspx">Actualizar Movimientos</a></li>
+                    <li><a href="Borra_Movimiento.aspx">Borrar Movimientos</a></li>
                 </ul>
             </div>
             <div class="clear"></div>

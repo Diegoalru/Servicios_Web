@@ -10,7 +10,7 @@
 namespace WApp.Pages {
     
     
-    public partial class Actualiza_Movimiento {
+    public partial class Borra_Movimiento {
         
         /// <summary>
         /// Control Lbl_Movimiento.
@@ -31,24 +31,6 @@ namespace WApp.Pages {
         protected global::System.Web.UI.WebControls.TextBox Txt_Movimiento;
         
         /// <summary>
-        /// Control Lbl_Monto.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_Monto;
-        
-        /// <summary>
-        /// Control Txt_Monto.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Txt_Monto;
-        
-        /// <summary>
         /// Control Lbl_Mensaje.
         /// </summary>
         /// <remarks>
@@ -58,12 +40,12 @@ namespace WApp.Pages {
         protected global::System.Web.UI.WebControls.Label Lbl_Mensaje;
         
         /// <summary>
-        /// Control Btn_Actualizar.
+        /// Control Btn_Borrar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_Actualizar;
+        protected global::System.Web.UI.WebControls.Button Btn_Borrar;
     }
 }

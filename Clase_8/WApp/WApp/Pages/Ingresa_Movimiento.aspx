@@ -30,7 +30,7 @@
         </tr>
         <tr>
             <td colspan="2" style="text-align: center;">
-                <asp:Label ID="Lbl_Mensaje" runat="server" Font-Bold="True" Font-Names="Arial" Font-Size="10pt" ForeColor="Red"></asp:Label>
+                <asp:Label ID="Lbl_Mensaje" runat="server" Font-Bold="True" Font-Names="Arial" Font-Size="10pt"></asp:Label>
             </td>
         </tr>
     </table>

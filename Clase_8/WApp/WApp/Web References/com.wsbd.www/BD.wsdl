@@ -83,6 +83,17 @@
       <s:element name="EliminaMovimientoResponse">
         <s:complexType />
       </s:element>
+      <s:element name="ModificaMovimiento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id_movimiento" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="monto" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificaMovimientoResponse">
+        <s:complexType />
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="HelloWorldSoapIn">
@@ -121,30 +132,46 @@
   <wsdl:message name="EliminaMovimientoSoapOut">
     <wsdl:part name="parameters" element="tns:EliminaMovimientoResponse" />
   </wsdl:message>
+  <wsdl:message name="ModificaMovimientoSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificaMovimiento" />
+  </wsdl:message>
+  <wsdl:message name="ModificaMovimientoSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificaMovimientoResponse" />
+  </wsdl:message>
   <wsdl:portType name="BDSoap">
     <wsdl:operation name="HelloWorld">
       <wsdl:input message="tns:HelloWorldSoapIn" />
       <wsdl:output message="tns:HelloWorldSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetUsuarios">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene la información de la tabla Usuarios.</wsdl:documentation>
       <wsdl:input message="tns:GetUsuariosSoapIn" />
       <wsdl:output message="tns:GetUsuariosSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="Login">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo que valida las credenciales del usuario.</wsdl:documentation>
       <wsdl:input message="tns:LoginSoapIn" />
       <wsdl:output message="tns:LoginSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetMovimientos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo que devuelve todos los Movimientos.</wsdl:documentation>
       <wsdl:input message="tns:GetMovimientosSoapIn" />
       <wsdl:output message="tns:GetMovimientosSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="IngresaMovimiento">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo que se encarga de ingresar movimientos.</wsdl:documentation>
       <wsdl:input message="tns:IngresaMovimientoSoapIn" />
       <wsdl:output message="tns:IngresaMovimientoSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="EliminaMovimiento">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Elimina un registro mediante su Id_Movimiento.</wsdl:documentation>
       <wsdl:input message="tns:EliminaMovimientoSoapIn" />
       <wsdl:output message="tns:EliminaMovimientoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificaMovimiento">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Modifica un registro mediante su Id_Movimiento.</wsdl:documentation>
+      <wsdl:input message="tns:ModificaMovimientoSoapIn" />
+      <wsdl:output message="tns:ModificaMovimientoSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BDSoap" type="tns:BDSoap">
@@ -203,6 +230,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ModificaMovimiento">
+      <soap:operation soapAction="http://tempuri.org/ModificaMovimiento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="BDSoap12" type="tns:BDSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -253,6 +289,15 @@
     </wsdl:operation>
     <wsdl:operation name="EliminaMovimiento">
       <soap12:operation soapAction="http://tempuri.org/EliminaMovimiento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificaMovimiento">
+      <soap12:operation soapAction="http://tempuri.org/ModificaMovimiento" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
